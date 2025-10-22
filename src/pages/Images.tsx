@@ -1,20 +1,26 @@
+import { Link } from "react-router-dom";
+
 const images = [
   {
+    id: "1",
     title: "Urban Geometry",
     year: "2024",
     description: "Concrete and shadows",
   },
   {
+    id: "2",
     title: "Night Streets",
     year: "2024",
     description: "City lights after dark",
   },
   {
+    id: "3",
     title: "Minimalist Architecture",
     year: "2023",
     description: "Form follows function",
   },
   {
+    id: "4",
     title: "Industrial Landscapes",
     year: "2023",
     description: "Beauty in brutalism",
@@ -31,9 +37,10 @@ const Images = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
-          {images.map((image, index) => (
-            <div
-              key={index}
+          {images.map((image) => (
+            <Link
+              key={image.id}
+              to={`/images/${image.id}`}
               className="space-y-4 group cursor-pointer"
             >
               <div className="aspect-[4/3] bg-grey-200 border-2 border-foreground overflow-hidden brutalist-hover">
@@ -49,7 +56,7 @@ const Images = () => {
                 </div>
                 <p className="text-sm text-grey-600">{image.description}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

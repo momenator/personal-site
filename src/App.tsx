@@ -8,6 +8,7 @@ import Projects from "./pages/Projects";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Images from "./pages/Images";
+import ImageDetail from "./pages/ImageDetail";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import ScrollFade from "./components/ScrollFade";
@@ -30,6 +31,7 @@ const AppContent = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/images" element={<Images />} />
+          <Route path="/images/:id" element={<ImageDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </ScrollFade>
