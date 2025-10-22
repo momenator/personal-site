@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Images from "./pages/Images";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
@@ -25,6 +26,7 @@ const AppContent = () => {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/images" element={<Images />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
