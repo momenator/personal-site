@@ -46,6 +46,14 @@ All colors MUST be HSL.
     --grey-500: 0 0% 40%;
     --grey-600: 0 0% 20%;
     --grey-700: 0 0% 10%;
+
+    /* Shadow colors for random brutalist effects */
+    --shadow-red: 0 70% 55%;
+    --shadow-blue: 220 80% 60%;
+    --shadow-yellow: 45 100% 50%;
+    --shadow-green: 150 70% 50%;
+    --shadow-purple: 280 70% 60%;
+    --shadow-pink: 330 80% 65%;
   }
 }
 
@@ -104,10 +112,15 @@ All colors MUST be HSL.
 
   .brutalist-hover {
     transition: all 0.15s ease;
+    --hover-x: -2px;
+    --hover-y: -2px;
+    --shadow-x: 4px;
+    --shadow-y: 4px;
+    --shadow-color: var(--foreground);
   }
 
   .brutalist-hover:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0 hsl(var(--foreground));
+    transform: translate(var(--hover-x), var(--hover-y));
+    box-shadow: var(--shadow-x) var(--shadow-y) 0 hsl(var(--shadow-color));
   }
 }

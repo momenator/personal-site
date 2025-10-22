@@ -12,11 +12,13 @@ import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import ScrollFade from "./components/ScrollFade";
 import { useDynamicHighlight } from "./hooks/useDynamicHighlight";
+import { useRandomHover } from "./hooks/useRandomHover";
 
 const queryClient = new QueryClient();
 
 const AppContent = () => {
   useDynamicHighlight();
+  useRandomHover();
   
   return (
     <>
