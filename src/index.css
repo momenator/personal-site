@@ -65,6 +65,11 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-sans antialiased;
     letter-spacing: -0.01em;
+    background-image: url('/src/assets/cracked-wall.jpg');
+    background-size: 400px 400px;
+    background-repeat: repeat;
+    background-blend-mode: overlay;
+    opacity: 0.98;
   }
 
   /* Dynamic highlight colors */
