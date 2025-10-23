@@ -73,8 +73,8 @@ All colors MUST be HSL.
     position: fixed;
     bottom: 0;
     right: 0;
-    width: 600px;
-    height: 600px;
+    width: 400px;
+    height: 400px;
     background-image: url('/src/assets/cracked-wall.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -84,6 +84,13 @@ All colors MUST be HSL.
     pointer-events: none;
     mask-image: radial-gradient(circle at bottom right, black 0%, transparent 70%);
     -webkit-mask-image: radial-gradient(circle at bottom right, black 0%, transparent 70%);
+  }
+
+  @media (max-width: 767px) {
+    body::before {
+      width: 250px;
+      height: 250px;
+    }
   }
 
   /* Dynamic highlight colors */
