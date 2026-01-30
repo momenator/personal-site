@@ -29,32 +29,36 @@ const images = [
 
 const Images = () => {
   return (
-    <div className="min-h-screen pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
-      <div className="space-y-16">
-        <div className="space-y-4">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter">IMAGES</h1>
-          <div className="w-20 h-1 bg-foreground"></div>
-        </div>
+    <div className="min-h-screen pt-28 md:pt-36 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="space-y-20 md:space-y-28">
+        {/* Header */}
+        <header className="space-y-6">
+          <span className="label-stark">Photography</span>
+          <h1 className="text-display-lg font-display text-monumental">IMAGES</h1>
+        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
-          {images.map((image) => (
+        {/* Image grid - asymmetric masonry style */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 max-w-5xl">
+          {images.map((image, index) => (
             <Link
               key={image.id}
               to={`/images/${image.id}`}
-              className="space-y-4 group cursor-pointer"
+              className={`group block ${index % 3 === 1 ? 'md:mt-16' : ''}`}
             >
-              <div className="aspect-[4/3] bg-grey-200 border-2 border-foreground overflow-hidden brutalist-hover">
-                <div className="w-full h-full flex items-center justify-center text-grey-400">
-                  <span className="text-sm font-mono">[IMAGE]</span>
+              {/* Image container */}
+              <div className="aspect-[4/3] bg-grey-100 overflow-hidden mb-5 transition-opacity group-hover:opacity-80">
+                <div className="w-full h-full flex items-center justify-center">
+                  <span className="text-xs font-mono text-grey-300 tracking-widest">[IMAGE]</span>
                 </div>
               </div>
-              
-              <div className="space-y-2">
-                <div className="flex items-baseline justify-between">
-                  <h3 className="text-xl font-bold">{image.title}</h3>
-                  <span className="text-xs text-grey-500 font-mono">{image.year}</span>
+
+              {/* Caption */}
+              <div className="flex items-start justify-between gap-4">
+                <div className="space-y-1">
+                  <h3 className="text-base font-medium tracking-tight">{image.title}</h3>
+                  <p className="text-xs text-grey-400">{image.description}</p>
                 </div>
-                <p className="text-sm text-grey-600">{image.description}</p>
+                <span className="text-[10px] font-mono text-grey-300 pt-1">{image.year}</span>
               </div>
             </Link>
           ))}
