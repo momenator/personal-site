@@ -119,7 +119,7 @@ All colors MUST be HSL.
   }
 
   .scroll-fade-container::before {
-    top: 64px;
+    top: 56px;
     background: linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 100%);
   }
 
