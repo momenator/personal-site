@@ -8,52 +8,53 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    /* Rick Owens inspired: warm concrete tones with stark contrast */
+    --background: 40 10% 97%;
+    --foreground: 0 0% 8%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card: 40 10% 97%;
+    --card-foreground: 0 0% 8%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover: 40 10% 97%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 40 10% 97%;
 
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 30 5% 18%;
+    --secondary-foreground: 40 10% 97%;
 
-    --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 40 8% 93%;
+    --muted-foreground: 30 5% 45%;
 
-    --accent: 0 0% 10%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 40 10% 97%;
 
-    --destructive: 0 0% 0%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 0% 8%;
+    --destructive-foreground: 40 10% 97%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 0%;
+    --border: 30 5% 85%;
+    --input: 30 5% 85%;
+    --ring: 0 0% 8%;
 
     --radius: 0rem;
 
-    /* Brutalist greys */
-    --grey-100: 0 0% 95%;
-    --grey-200: 0 0% 90%;
-    --grey-300: 0 0% 80%;
-    --grey-400: 0 0% 60%;
-    --grey-500: 0 0% 40%;
-    --grey-600: 0 0% 20%;
-    --grey-700: 0 0% 10%;
+    /* Acne/Rick Owens inspired concrete greys - warm undertones */
+    --grey-100: 40 8% 96%;
+    --grey-200: 35 6% 90%;
+    --grey-300: 30 5% 78%;
+    --grey-400: 25 4% 55%;
+    --grey-500: 20 3% 40%;
+    --grey-600: 15 3% 25%;
+    --grey-700: 10 2% 12%;
 
-    /* Shadow colors for random brutalist effects */
-    --shadow-red: 0 70% 55%;
-    --shadow-blue: 220 80% 60%;
-    --shadow-yellow: 45 100% 50%;
-    --shadow-green: 150 70% 50%;
-    --shadow-purple: 280 70% 60%;
-    --shadow-pink: 330 80% 65%;
+    /* Refined shadow colors - more muted, architectural */
+    --shadow-red: 5 45% 45%;
+    --shadow-blue: 210 35% 45%;
+    --shadow-yellow: 45 50% 45%;
+    --shadow-green: 160 30% 40%;
+    --shadow-purple: 270 30% 45%;
+    --shadow-pink: 340 35% 50%;
   }
 }
 
@@ -64,8 +65,9 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     position: relative;
+    font-weight: 400;
   }
 
   body::before {
@@ -73,38 +75,34 @@ All colors MUST be HSL.
     position: fixed;
     bottom: 0;
     right: 0;
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     background-image: url('/src/assets/cracked-wall.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom right;
-    opacity: 0.2;
+    opacity: 0.15;
     z-index: -1;
     pointer-events: none;
-    mask-image: radial-gradient(circle at bottom right, black 0%, transparent 70%);
-    -webkit-mask-image: radial-gradient(circle at bottom right, black 0%, transparent 70%);
+    mask-image: radial-gradient(circle at bottom right, black 0%, transparent 65%);
+    -webkit-mask-image: radial-gradient(circle at bottom right, black 0%, transparent 65%);
+    filter: grayscale(100%) contrast(1.1);
   }
 
   @media (max-width: 767px) {
     body::before {
-      width: 250px;
-      height: 250px;
+      width: 280px;
+      height: 280px;
     }
   }
 
   /* Dynamic highlight colors */
   ::selection {
-    animation: highlight-change 0.3s ease;
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
   }
 
-  @keyframes highlight-change {
-    from {
-      background-color: transparent;
-    }
-  }
-
-  /* Scroll fade effect */
+  /* Scroll fade effect - more subtle */
   .scroll-fade-container {
     position: relative;
   }
@@ -115,13 +113,13 @@ All colors MUST be HSL.
     position: fixed;
     left: 0;
     right: 0;
-    height: 120px;
+    height: 80px;
     pointer-events: none;
     z-index: 10;
   }
 
   .scroll-fade-container::before {
-    top: 60px;
+    top: 64px;
     background: linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 100%);
   }
 
@@ -129,24 +127,70 @@ All colors MUST be HSL.
     bottom: 0;
     background: linear-gradient(to top, hsl(var(--background)) 0%, transparent 100%);
   }
+
+  /* Rick Owens-style monumental typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    letter-spacing: -0.03em;
+  }
+
+  /* Acne Studios-style clean links */
+  a {
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  a:hover {
+    opacity: 0.7;
+  }
 }
 
 @layer utilities {
   .brutalist-border {
-    border: 2px solid hsl(var(--foreground));
+    border: 1px solid hsl(var(--foreground));
   }
 
+  /* Rick Owens-inspired: subtle, architectural hover */
   .brutalist-hover {
-    transition: all 0.15s ease;
-    --hover-x: -2px;
-    --hover-y: -2px;
-    --shadow-x: 4px;
-    --shadow-y: 4px;
+    transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+    --hover-x: 0;
+    --hover-y: -3px;
+    --shadow-x: 0;
+    --shadow-y: 3px;
     --shadow-color: var(--foreground);
   }
 
   .brutalist-hover:hover {
     transform: translate(var(--hover-x), var(--hover-y));
-    box-shadow: var(--shadow-x) var(--shadow-y) 0 hsl(var(--shadow-color));
+    box-shadow: var(--shadow-x) var(--shadow-y) 0 hsl(var(--shadow-color) / 0.15);
+  }
+
+  /* Architectural index number styling */
+  .index-number {
+    @apply font-mono text-xs tracking-widest text-grey-400;
+    font-feature-settings: 'tnum' on, 'lnum' on;
+  }
+
+  /* Rick Owens-style divider */
+  .architectural-divider {
+    @apply w-full h-px bg-foreground opacity-10;
+  }
+
+  /* Monumental text - for oversized headings */
+  .text-monumental {
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+  }
+
+  /* Light weight text - Acne Studios style */
+  .text-light {
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+
+  /* Stark label styling */
+  .label-stark {
+    @apply text-xs font-medium tracking-[0.2em] uppercase text-grey-500;
   }
 }

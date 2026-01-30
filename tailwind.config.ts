@@ -58,8 +58,13 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Space Grotesk', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans: ['Inter', 'Space Grotesk', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        display: ['Space Grotesk', 'Inter', '-apple-system', 'sans-serif'],
         mono: ['Space Mono', '"SF Mono"', 'Monaco', 'Consolas', 'monospace'],
+      },
+      fontSize: {
+        'display-xl': ['clamp(4rem, 12vw, 10rem)', { lineHeight: '0.85', letterSpacing: '-0.04em' }],
+        'display-lg': ['clamp(3rem, 8vw, 6rem)', { lineHeight: '0.9', letterSpacing: '-0.03em' }],
       },
       borderRadius: {
         lg: "var(--radius)",
