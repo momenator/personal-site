@@ -77,7 +77,7 @@ All colors MUST be HSL.
     right: 0;
     width: 450px;
     height: 450px;
-    background-image: url('/src/assets/cracked-wall.jpg');
+    background-image: url('/cracked-wall.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom right;
@@ -143,6 +143,57 @@ All colors MUST be HSL.
   a:hover {
     opacity: 0.7;
   }
+}
+
+/* Markdown prose styles for writing posts */
+.prose-writing {
+  @apply text-base leading-relaxed;
+}
+
+.prose-writing p {
+  @apply text-lg leading-relaxed text-grey-600 mb-6;
+}
+
+.prose-writing h2 {
+  @apply text-2xl md:text-3xl font-bold tracking-tight mt-12 mb-4 text-foreground;
+}
+
+.prose-writing h3 {
+  @apply text-xl font-bold tracking-tight mt-8 mb-3 text-foreground;
+}
+
+.prose-writing pre {
+  @apply my-6 border-2 border-foreground overflow-x-auto;
+}
+
+.prose-writing pre code {
+  @apply block bg-grey-100 p-6 text-sm font-mono leading-relaxed text-foreground;
+}
+
+.prose-writing :not(pre) > code {
+  @apply font-mono text-sm bg-grey-100 px-1.5 py-0.5 border border-grey-300;
+}
+
+.prose-writing ul {
+  @apply mb-6 space-y-2 pl-6;
+  list-style-type: disc;
+}
+
+.prose-writing ol {
+  @apply mb-6 space-y-2 pl-6;
+  list-style-type: decimal;
+}
+
+.prose-writing li {
+  @apply text-lg text-grey-600 leading-relaxed;
+}
+
+.prose-writing blockquote {
+  @apply border-l-2 border-foreground pl-6 my-6 text-grey-500 italic;
+}
+
+.prose-writing a {
+  @apply text-foreground border-b border-foreground/40 hover:border-foreground transition-colors;
 }
 
 @layer utilities {

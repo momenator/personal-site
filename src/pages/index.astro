@@ -1,0 +1,54 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="M.R — Personal Site">
+  <div class="min-h-screen pt-28 md:pt-36 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+    <div class="space-y-24 md:space-y-32">
+      <!-- Monumental header - Rick Owens inspired -->
+      <header class="space-y-8">
+        <h1 class="text-display-xl font-display text-monumental">
+          M.R
+        </h1>
+        <div class="w-16 h-px bg-foreground/20"></div>
+      </header>
+
+      <!-- Intro - Acne Studios inspired light weight -->
+      <div class="max-w-xl space-y-6">
+        <p class="text-2xl md:text-3xl text-light leading-snug tracking-tight">
+          Developer &gt; Writer
+        </p>
+
+        <p class="text-base text-grey-400 leading-relaxed">
+          Creating digital experiences through code and capturing moments through the lens.
+          Where function meets form.
+        </p>
+      </div>
+
+      <!-- Info grid - Asymmetric layout -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 pt-8">
+        <div class="space-y-4">
+          <span class="label-stark">Currently</span>
+          <p class="text-sm text-grey-500 leading-relaxed">
+            Building minimalist web experiences and documenting urban landscapes.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <span class="label-stark">Contact</span>
+          <div class="space-y-2 text-sm text-grey-500">
+            <p>email@example.com</p>
+            <p>github.com/username</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <span class="label-stark">Location</span>
+          <p class="text-sm text-grey-500">
+            Somewhere, Earth
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,15 +1,23 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+interface NavbarProps {
+  currentPath: string;
+}
+
+const Navbar = ({ currentPath }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { to: "/", label: "HOME" },
-    { to: "/projects", label: "PROJECTS" },
-    { to: "/blog", label: "BLOG" },
-    { to: "/images", label: "IMAGES" },
+    { href: "/", label: "HOME" },
+    { href: "/projects", label: "PROJECTS" },
+    { href: "/writing", label: "WRITING" },
+    { href: "/photos", label: "PHOTOS" },
   ];
+
+  const isActive = (href: string) => {
+    if (href === "/") return currentPath === "/";
+    return currentPath.startsWith(href);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-foreground/10 z-50">
@@ -17,20 +25,17 @@ const Navbar = () => {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center h-14 gap-16">
           {navLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.to === "/"}
-              className={({ isActive }) =>
-                `text-xs tracking-[0.15em] transition-opacity ${
-                  isActive
-                    ? "text-foreground"
-                    : "text-grey-400 hover:text-foreground"
-                }`
-              }
+            <a
+              key={link.href}
+              href={link.href}
+              className={`text-xs tracking-[0.15em] transition-opacity ${
+                isActive(link.href)
+                  ? "text-foreground"
+                  : "text-grey-400 hover:text-foreground"
+              }`}
             >
               {link.label}
-            </NavLink>
+            </a>
           ))}
         </div>
 
@@ -72,21 +77,18 @@ const Navbar = () => {
       >
         <div className="px-6 py-4 space-y-4">
           {navLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.to === "/"}
+            <a
+              key={link.href}
+              href={link.href}
               onClick={() => setIsOpen(false)}
-              className={({ isActive }) =>
-                `block text-sm tracking-[0.1em] transition-opacity ${
-                  isActive
-                    ? "text-foreground"
-                    : "text-grey-400"
-                }`
-              }
+              className={`block text-sm tracking-[0.1em] transition-opacity ${
+                isActive(link.href)
+                  ? "text-foreground"
+                  : "text-grey-400"
+              }`}
             >
               {link.label}
-            </NavLink>
+            </a>
           ))}
         </div>
       </div>

@@ -1,11 +1,13 @@
 {
-  "files": [],
-  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
+  "extends": "astro/tsconfigs/base",
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "noImplicitAny": false,
     "noUnusedParameters": false,
     "skipLibCheck": true,
